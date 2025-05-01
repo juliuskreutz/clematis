@@ -18,4 +18,5 @@ jobs:
 
       - name: Run Nixfmt
         run: |
-          nix-shell -p nixfmt-tree --run "treefmt --ci ."
+          nix-shell -p nixfmt-tree
+          treefmt --ci .
