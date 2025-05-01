@@ -17,5 +17,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Run Nixfmt
-        run: |
-          nix-shell -p nixfmt-tree --run "treefmt --ci ."
+        run: nix-shell -p nixfmt-tree --run "treefmt --ci ."
+
+      - name: Run Nix Flake Check
+        run: nix flake check
