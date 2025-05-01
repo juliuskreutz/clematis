@@ -1,0 +1,21 @@
+name: Lint
+
+on: push
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Install Nixfmt
+        run: nix-env -iA nixpkgs.nixfmt-tree
+
+      - name: Run Nixfmt
+        run: treefmt --ci .
