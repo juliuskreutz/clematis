@@ -18,8 +18,7 @@ jobs:
 
       - name: Install packages with Nix
         run: |
-          nix-env -iA nixpkgs.hello
-          hello
+          nix-shell -p hello --run "hello"
 
       # - name: Install Nixfmt
       #   run: nix-env -iA nixpkgs.nixfmt-tree
