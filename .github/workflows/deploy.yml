@@ -27,4 +27,4 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Run Nixos Rebuild
-        run: nixos-rebuild switch --flake . --target-host root@"${{ secrets.HOST }}"
+        run: nix-shell -p nixos-rebuild --run "nixos-rebuild switch --flake . --target-host root@${{ secrets.HOST }}"
